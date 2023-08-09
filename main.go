@@ -29,6 +29,9 @@ func main() {
 		return
 	}
 
+	// Variables para calcular la sumatoria de precios
+	var sumatoriaPrecios float64
+
 	// Leer y escribir detalles de productos
 	for i := 0; i < 10; i++ {
 		var producto, codigo string
@@ -54,7 +57,11 @@ func main() {
 			fmt.Println("Error al escribir en el archivo:", err)
 			return
 		}
+
+		// Agregar el precio a la sumatoria
+		sumatoriaPrecios += precio
 	}
 
-	fmt.Println("Los detalles de los productos se han guardado en productos.csv.")
+	fmt.Printf("Los detalles de los productos se han guardado en productos.csv.\n")
+	fmt.Printf("La sumatoria de los precios es: %.2f\n", sumatoriaPrecios)
 }
